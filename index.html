@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kinetic — макросы для Rocket League</title>
+<meta name="description" content="Kinetic: макросы для тренировок в Rocket League. Бесплатно 8 минут на все макросы, дальше ключ на 3, 7 или 30 дней.">
+<style>
+:root{--bg:#0b0707;--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.1);--text:#f4ecea;--muted:#a99a96;--red:#ff2400;--red2:#ff5a3c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(900px 500px at 15% -10%,rgba(255,36,0,.28),transparent 60%),radial-gradient(700px 500px at 100% 10%,rgba(255,90,60,.16),transparent 60%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font-weight:800;letter-spacing:.14em;font-size:18px}
+.logo b{color:var(--red)}
+nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:14px}
+nav a:hover{color:var(--text)}
+.hero{padding:56px 0 40px;text-align:center}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin:0 0 16px;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(90deg,var(--red),var(--red2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:620px;margin:0 auto 28px;color:var(--muted);font-size:18px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--text);background:var(--card);backdrop-filter:blur(8px)}
+.btn.primary{background:linear-gradient(135deg,var(--red),var(--red2));border-color:transparent;color:#fff;box-shadow:0 8px 30px rgba(255,36,0,.35)}
+.btn:hover{transform:translateY(-1px)}
+.note{color:var(--muted);font-size:13px;margin-top:14px}
+section{padding:44px 0}
+h2{font-size:28px;margin:0 0 20px;letter-spacing:-.01em}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;backdrop-filter:blur(10px)}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.price{font-size:34px;font-weight:800;margin:6px 0}
+.price small{font-size:14px;color:var(--muted);font-weight:500}
+.card.hot{border-color:rgba(255,36,0,.7);box-shadow:0 0 0 1px rgba(255,36,0,.4),0 10px 40px rgba(255,36,0,.18)}
+ol.steps{padding-left:22px;margin:0}
+ol.steps li{margin:8px 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin:10px 0 0}
+.warn{border:1px solid rgba(255,176,32,.5);background:rgba(255,176,32,.07);border-radius:16px;padding:16px 20px;color:#f1d9a6;font-size:14.5px}
+footer{padding:36px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">KINE<b>TIC</b></div>
+  <nav><a href="#macros">Макросы</a><a href="#price">Цены</a><a href="#start">Как начать</a><a href="#faq">Вопросы</a></nav>
+</header>
+
+<div class="hero">
+  <h1>Макросы для Rocket League.<br><span>Тренируй механику чище.</span></h1>
+  <p>Кикофф, флипы, wall dash, musty и другие сценарии в одном окне. Скачай бесплатно: <b>8 минут</b> все макросы работают без ключа.</p>
+  <div class="btns">
+    <a class="btn primary" id="dl" href="#">Скачать Kinetic (Windows)</a>
+    <a class="btn" href="#price">Купить ключ</a>
+  </div>
+  <div class="note">Windows 10/11 · бесплатная проба 8 минут · без регистрации</div>
+</div>
+
+<section id="macros">
+  <h2>Что внутри</h2>
+  <div class="grid">
+    <div class="card"><h3>9 готовых макросов</h3><p>Кикофф, Half Flip, Speed Flip Both, Stall, Wall Dash влево и вправо, Breezi, Mawkzy Both, Musty.</p></div>
+    <div class="card"><h3>Свои клавиши</h3><p>Привяжи макрос к любой клавише. Нажми на букву прямо в главном меню и смени её.</p></div>
+    <div class="card"><h3>Под твои бинды</h3><p>Программа использует клавиши, которые стоят у тебя в настройках Rocket League.</p></div>
+    <div class="card"><h3>Тонкая настройка</h3><p>Множитель задержек подгоняет макрос под твой FPS и ощущения.</p></div>
+  </div>
+</section>
+
+<section id="price">
+  <h2>Ключи</h2>
+  <div class="grid">
+    <div class="card"><h3>3 дня</h3><div class="price">119 ₽</div><p>Чтобы попробовать всё без спешки.</p><p style="margin-top:14px"><a class="btn buy" href="#">Купить</a></p></div>
+    <div class="card hot"><h3>7 дней</h3><div class="price">199 ₽</div><p>Неделя тренировок. Самый популярный.</p><p style="margin-top:14px"><a class="btn primary buy" href="#">Купить</a></p></div>
+    <div class="card"><h3>30 дней</h3><div class="price">449 ₽</div><p>Месяц, выгоднее всего за день.</p><p style="margin-top:14px"><a class="btn buy" href="#">Купить</a></p></div>
+  </div>
+  <p class="note">Срок ключа считается с момента активации, а не с момента покупки. Ключ приходит автоматически сразу после оплаты. Возврат после выдачи ключа не предусмотрен: сначала попробуй бесплатные 8 минут.</p>
+</section>
+
+<section id="start">
+  <h2>Как начать</h2>
+  <ol class="steps">
+    <li>Скачай и запусти <code>Kinetic.exe</code>. Принять условия нужно один раз.</li>
+    <li>Вкладка «Бинды»: укажи клавиши как в Rocket League (Настройки → Управление).</li>
+    <li>Выбери макрос, назначь клавишу запуска и нажми «Сохранить».</li>
+    <li>Зайди в игру (во фриплей) и нажми клавишу макроса. F8 включает и выключает макросы, F10 останавливает всё.</li>
+    <li>Когда 8 минут закончатся, купи ключ, открой вкладку «Лицензия», вставь ключ и нажми «Активировать».</li>
+  </ol>
+</section>
+
+<section>
+  <div class="warn"><b>Важно.</b> Kinetic сделан для тренировок: свободная игра и кастомные матчи. Использование макросов в онлайн-матчах может нарушать правила игры и привести к блокировке аккаунта. В онлайн-матчах ты используешь программу на свой риск. Kinetic не связан с Psyonix и Epic Games.</div>
+</section>
+
+<section id="faq">
+  <h2>Вопросы</h2>
+  <details><summary>Windows пишет «Система Windows защитила ваш компьютер»</summary><p>Это стандартное предупреждение для новых программ без платной подписи издателя. Нажми «Подробнее» → «Выполнить в любом случае». Если антивирус ругается на макросы (программа нажимает клавиши за тебя), добавь папку с Kinetic в исключения.</p></details>
+  <details><summary>Макрос не срабатывает в игре</summary><p>Если Rocket League запущена от имени администратора, запусти и Kinetic от имени администратора. Проверь, что клавиши во вкладке «Бинды» совпадают с игровыми, и что макросы включены (F8).</p></details>
+  <details><summary>Флип получается неровным</summary><p>Подстрой «Множитель задержек» (например 1.10 — на 10% медленнее). Чем ниже FPS, тем больше нужны паузы между прыжками.</p></details>
+  <details><summary>Когда начинается срок ключа?</summary><p>С первой активации на твоём компьютере. Если ты купил ключ, но не активировал, срок не идёт.</p></details>
+  <details><summary>Можно передать ключ другу?</summary><p>Нет. Ключ для одного человека, и условия запрещают его передачу.</p></details>
+  <details><summary>Что с поддержкой и возвратом?</summary><p>Поддержка работает только через чат на площадке, где ты купил ключ (Plati или FunPay). После выдачи ключа возврат не предусмотрен, поэтому проверь программу в бесплатные 8 минут.</p></details>
+  <details><summary>Это безопасно?</summary><p>Программа только отправляет в игру нажатия клавиш и мыши по сценариям. Она не читает память игры и не вмешивается в её файлы. Но использование сторонних программ в онлайн-играх всегда на твоём риске.</p></details>
+</section>
+
+<footer>Kinetic · не является продуктом Psyonix или Epic Games. Rocket League — торговая марка Psyonix, Inc.</footer>
+</div>
+
+<script>
+// ← ВСТАВЬ СВОИ ССЫЛКИ ТУТ
+var CFG = {
+  download: "https://github.com/arteimleonov-pixel/kinetic/releases/latest/download/Kinetic.exe",
+  buy: "https://plati.market/"   // ссылка на твою карточку (Plati или FunPay)
+};
+document.getElementById("dl").href = CFG.download;
+document.querySelectorAll(".buy").forEach(function(a){a.href = CFG.buy;});
+</script>
+</body>
+</html>
