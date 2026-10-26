@@ -6,45 +6,102 @@
 <title>Kinetic — макросы для Rocket League</title>
 <meta name="description" content="Kinetic: макросы для тренировок в Rocket League. Бесплатно 8 минут на все макросы, дальше ключ на 3, 7 или 30 дней.">
 <style>
-:root{--bg:#0b0707;--card:rgba(255,255,255,.05);--line:rgba(255,255,255,.1);--text:#f4ecea;--muted:#a99a96;--red:#ff2400;--red2:#ff5a3c}
+:root{--bg:#070405;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.1);--text:#f6eeec;--muted:#a99a96;--red:#ff2400;--red2:#ff6a3c;--glow:rgba(255,36,0,.35)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(900px 500px at 15% -10%,rgba(255,36,0,.28),transparent 60%),radial-gradient(700px 500px at 100% 10%,rgba(255,90,60,.16),transparent 60%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:980px;margin:0 auto;padding:0 20px}
-header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.logo{font-weight:800;letter-spacing:.14em;font-size:18px}
-.logo b{color:var(--red)}
-nav a{color:var(--muted);text-decoration:none;margin-left:20px;font-size:14px}
-nav a:hover{color:var(--text)}
-.hero{padding:56px 0 40px;text-align:center}
-.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin:0 0 16px;letter-spacing:-.02em}
-.hero h1 span{background:linear-gradient(90deg,var(--red),var(--red2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{max-width:620px;margin:0 auto 28px;color:var(--muted);font-size:18px}
-.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 26px;border-radius:14px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--text);background:var(--card);backdrop-filter:blur(8px)}
-.btn.primary{background:linear-gradient(135deg,var(--red),var(--red2));border-color:transparent;color:#fff;box-shadow:0 8px 30px rgba(255,36,0,.35)}
-.btn:hover{transform:translateY(-1px)}
-.note{color:var(--muted);font-size:13px;margin-top:14px}
-section{padding:44px 0}
-h2{font-size:28px;margin:0 0 20px;letter-spacing:-.01em}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;backdrop-filter:blur(10px)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+/* ---------- фон ---------- */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.b1{width:620px;height:620px;left:-160px;top:-180px;background:radial-gradient(circle,#ff2400,transparent 68%);animation:d1 22s ease-in-out infinite alternate}
+.b2{width:560px;height:560px;right:-180px;top:12%;background:radial-gradient(circle,#ff6a3c,transparent 68%);opacity:.38;animation:d2 26s ease-in-out infinite alternate}
+.b3{width:700px;height:700px;left:25%;bottom:-340px;background:radial-gradient(circle,#b00d00,transparent 68%);opacity:.4;animation:d3 30s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(160px,120px) scale(1.15)}}
+@keyframes d2{to{transform:translate(-140px,160px) scale(1.2)}}
+@keyframes d3{to{transform:translate(120px,-100px) scale(1.1)}}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.2px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 20%,#000 0%,transparent 72%)}
+.streaks{position:absolute;inset:-20% -10%;background:repeating-linear-gradient(115deg,transparent 0 140px,rgba(255,60,20,.07) 140px 141px,transparent 141px 300px);animation:sk 18s linear infinite;-webkit-mask-image:linear-gradient(#000,transparent 80%);mask-image:linear-gradient(#000,transparent 80%)}
+@keyframes sk{to{transform:translateX(300px)}}
+.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.65))}
+/* ---------- каркас ---------- */
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+header{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+.logo{font-weight:900;letter-spacing:.2em;font-size:18px}
+.logo b{color:var(--red);text-shadow:0 0 18px var(--glow)}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px;transition:.2s}
+nav a:hover{color:#fff}
+.btn{display:inline-block;padding:15px 28px;border-radius:16px;font-weight:700;text-decoration:none;border:1px solid var(--line);color:var(--text);background:var(--card);backdrop-filter:blur(10px);transition:.25s}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.28)}
+.btn.primary{background:linear-gradient(135deg,var(--red),var(--red2));border-color:transparent;color:#fff;box-shadow:0 10px 36px var(--glow)}
+.btn.primary:hover{box-shadow:0 14px 48px rgba(255,36,0,.55)}
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center;padding:46px 0 30px}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:7px 14px;border-radius:99px;border:1px solid rgba(255,90,60,.4);background:rgba(255,36,0,.1);color:#ffb1a0;font-size:13px;margin-bottom:20px}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:pl 1.6s infinite}
+@keyframes pl{50%{opacity:.3}}
+.hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.04;margin:0 0 18px;letter-spacing:-.03em}
+.hero h1 span{background:linear-gradient(90deg,#ff2400,#ff7a4a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:520px;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.note{color:var(--muted);font-size:13px;margin-top:16px}
+/* окно приложения */
+.stage{perspective:1400px}
+.win{transform:rotateY(-9deg) rotateX(4deg);border-radius:22px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));backdrop-filter:blur(16px);box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 80px rgba(255,36,0,.22);padding:16px;animation:fl 7s ease-in-out infinite}
+@keyframes fl{50%{transform:rotateY(-6deg) rotateX(2deg) translateY(-10px)}}
+.wbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.wlogo{font-weight:900;letter-spacing:.18em;font-size:13px}.wlogo b{color:var(--red)}
+.chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:99px;background:rgba(255,176,32,.14);color:#ffb020;border:1px solid rgba(255,176,32,.4)}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mc{border-radius:14px;padding:11px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.mc.on{border-color:rgba(255,60,30,.6);background:rgba(255,36,0,.1)}
+.mc small{display:block;color:var(--muted);font-size:10px}
+.mc b{display:block;font-size:12.5px;margin:2px 0 9px}
+.row{display:flex;justify-content:space-between;align-items:center}
+.key{font:700 11px ui-monospace,Consolas,monospace;padding:3px 8px;border-radius:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+.sw{width:30px;height:16px;border-radius:99px;background:rgba(255,255,255,.14);position:relative}
+.sw::after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:#bbb}
+.on .sw{background:linear-gradient(90deg,var(--red),var(--red2));box-shadow:0 0 12px var(--glow)}
+.on .sw::after{left:16px;background:#fff}
+.wfoot{margin-top:12px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.wfoot b{color:#3ddc84}
+/* ---------- полоса цифр ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px}
+.stat{text-align:center;padding:18px 10px;border-radius:18px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.stat b{display:block;font-size:30px;line-height:1.1;background:linear-gradient(90deg,#fff,#ffb7a3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:13px}
+/* ---------- секции ---------- */
+section{padding:48px 0}
+h2{font-size:clamp(26px,3.6vw,36px);margin:0 0 22px;letter-spacing:-.02em}
+h2::after{content:"";display:block;width:46px;height:3px;border-radius:3px;margin-top:10px;background:linear-gradient(90deg,var(--red),transparent)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;backdrop-filter:blur(12px);transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,80,50,.5);box-shadow:0 16px 50px rgba(255,36,0,.14)}
 .card h3{margin:0 0 6px;font-size:17px}
 .card p{margin:0;color:var(--muted);font-size:14.5px}
-.price{font-size:34px;font-weight:800;margin:6px 0}
-.price small{font-size:14px;color:var(--muted);font-weight:500}
-.card.hot{border-color:rgba(255,36,0,.7);box-shadow:0 0 0 1px rgba(255,36,0,.4),0 10px 40px rgba(255,36,0,.18)}
-ol.steps{padding-left:22px;margin:0}
-ol.steps li{margin:8px 0}
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0}
+.ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(135deg,rgba(255,36,0,.3),rgba(255,106,60,.12));border:1px solid rgba(255,90,60,.4);font-size:18px}
+.price{font-size:38px;font-weight:800;margin:6px 0;letter-spacing:-.02em}
+.card.hot{border-color:rgba(255,60,30,.75);background:linear-gradient(160deg,rgba(255,36,0,.14),rgba(255,255,255,.04));box-shadow:0 0 0 1px rgba(255,36,0,.35),0 18px 60px rgba(255,36,0,.22);position:relative}
+.card.hot::before{content:"ПОПУЛЯРНЫЙ";position:absolute;top:-11px;right:18px;font-size:10px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:99px;background:linear-gradient(90deg,var(--red),var(--red2))}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;background:linear-gradient(135deg,var(--red),var(--red2));box-shadow:0 0 16px var(--glow)}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 20px;margin:10px 0;transition:.2s}
+details[open]{border-color:rgba(255,80,50,.45)}
 summary{cursor:pointer;font-weight:600}
 details p{color:var(--muted);margin:10px 0 0}
-.warn{border:1px solid rgba(255,176,32,.5);background:rgba(255,176,32,.07);border-radius:16px;padding:16px 20px;color:#f1d9a6;font-size:14.5px}
-footer{padding:36px 0 50px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
-code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px}
+.warn{border:1px solid rgba(255,176,32,.5);background:rgba(255,176,32,.07);border-radius:18px;padding:18px 22px;color:#f3dcae;font-size:14.5px}
+.note2{color:var(--muted);font-size:13px;margin-top:14px}
+footer{padding:36px 0 54px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+code{background:rgba(255,255,255,.09);padding:2px 7px;border-radius:6px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.stage{order:2}.win{transform:none;animation:none}.stats{grid-template-columns:repeat(2,1fr)}nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="dots"></div><div class="streaks"></div><div class="vignette"></div></div>
+
 <div class="wrap">
 <header>
   <div class="logo">KINE<b>TIC</b></div>
@@ -52,36 +109,60 @@ code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px}
 </header>
 
 <div class="hero">
-  <h1>Макросы для Rocket League.<br><span>Тренируй механику чище.</span></h1>
-  <p>Кикофф, флипы, wall dash, musty и другие сценарии в одном окне. Скачай бесплатно: <b>8 минут</b> все макросы работают без ключа.</p>
-  <div class="btns">
-    <a class="btn primary" id="dl" href="#">Скачать Kinetic (Windows)</a>
-    <a class="btn" href="#price">Купить ключ</a>
+  <div>
+    <div class="pill"><i></i>Бесплатно 8 минут · все макросы</div>
+    <h1>Макросы для Rocket League.<br><span>Тренируй механику чище.</span></h1>
+    <p>Кикофф, флипы, wall dash, musty и другие сценарии в одном окне. Скачай, попробуй 8 минут без ключа и реши, нужен ли он тебе.</p>
+    <div class="btns">
+      <a class="btn primary" id="dl" href="#">Скачать Kinetic (Windows)</a>
+      <a class="btn" href="#price">Купить ключ</a>
+    </div>
+    <div class="note">Windows 10/11 · без регистрации · ключ приходит автоматически</div>
   </div>
-  <div class="note">Windows 10/11 · бесплатная проба 8 минут · без регистрации</div>
+  <div class="stage">
+    <div class="win">
+      <div class="wbar"><div class="wlogo">KINE<b>TIC</b></div><div class="chip">ПРОБНЫЙ 7:42</div></div>
+      <div class="mgrid">
+        <div class="mc on"><small>Макрос</small><b>Кикофф</b><div class="row"><span class="key">Q</span><span class="sw"></span></div></div>
+        <div class="mc on"><small>Макрос</small><b>Half Flip</b><div class="row"><span class="key">E</span><span class="sw"></span></div></div>
+        <div class="mc"><small>Макрос</small><b>Speed Flip</b><div class="row"><span class="key">R</span><span class="sw"></span></div></div>
+        <div class="mc on"><small>Макрос</small><b>Wall Dash</b><div class="row"><span class="key">Z</span><span class="sw"></span></div></div>
+        <div class="mc"><small>Макрос</small><b>Musty</b><div class="row"><span class="key">X</span><span class="sw"></span></div></div>
+        <div class="mc on"><small>Макрос</small><b>Breezi</b><div class="row"><span class="key">C</span><span class="sw"></span></div></div>
+      </div>
+      <div class="wfoot"><span><b>● ВКЛЮЧЕНО</b> · F8 — вкл/выкл</span><span>F10 — стоп</span></div>
+    </div>
+  </div>
 </div>
 
-<section id="macros">
+<div class="stats rv">
+  <div class="stat"><b>9</b><span>готовых макросов</span></div>
+  <div class="stat"><b>8 мин</b><span>бесплатная проба</span></div>
+  <div class="stat"><b>3·7·30</b><span>дней на выбор</span></div>
+  <div class="stat"><b>авто</b><span>выдача ключа</span></div>
+</div>
+
+<section id="macros" class="rv">
   <h2>Что внутри</h2>
   <div class="grid">
-    <div class="card"><h3>9 готовых макросов</h3><p>Кикофф, Half Flip, Speed Flip Both, Stall, Wall Dash влево и вправо, Breezi, Mawkzy Both, Musty.</p></div>
-    <div class="card"><h3>Свои клавиши</h3><p>Привяжи макрос к любой клавише. Нажми на букву прямо в главном меню и смени её.</p></div>
-    <div class="card"><h3>Под твои бинды</h3><p>Программа использует клавиши, которые стоят у тебя в настройках Rocket League.</p></div>
-    <div class="card"><h3>Тонкая настройка</h3><p>Множитель задержек подгоняет макрос под твой FPS и ощущения.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>9 готовых макросов</h3><p>Кикофф, Half Flip, Speed Flip Both, Stall, Wall Dash влево и вправо, Breezi, Mawkzy Both, Musty.</p></div>
+    <div class="card"><div class="ico">⌨</div><h3>Свои клавиши</h3><p>Привяжи макрос к любой клавише. Нажми на букву прямо в главном меню и смени её.</p></div>
+    <div class="card"><div class="ico">🎮</div><h3>Под твои бинды</h3><p>Программа использует клавиши, которые стоят у тебя в настройках Rocket League.</p></div>
+    <div class="card"><div class="ico">🎚</div><h3>Тонкая настройка</h3><p>Множитель задержек подгоняет макрос под твой FPS и ощущения.</p></div>
   </div>
 </section>
 
-<section id="price">
+<section id="price" class="rv">
   <h2>Ключи</h2>
   <div class="grid">
-    <div class="card"><h3>3 дня</h3><div class="price">119 ₽</div><p>Чтобы попробовать всё без спешки.</p><p style="margin-top:14px"><a class="btn buy" href="#">Купить</a></p></div>
-    <div class="card hot"><h3>7 дней</h3><div class="price">199 ₽</div><p>Неделя тренировок. Самый популярный.</p><p style="margin-top:14px"><a class="btn primary buy" href="#">Купить</a></p></div>
-    <div class="card"><h3>30 дней</h3><div class="price">449 ₽</div><p>Месяц, выгоднее всего за день.</p><p style="margin-top:14px"><a class="btn buy" href="#">Купить</a></p></div>
+    <div class="card"><h3>3 дня</h3><div class="price">119 ₽</div><p>Чтобы попробовать всё без спешки.</p><p style="margin-top:16px"><a class="btn buy" href="#">Купить</a></p></div>
+    <div class="card hot"><h3>7 дней</h3><div class="price">199 ₽</div><p>Неделя тренировок.</p><p style="margin-top:16px"><a class="btn primary buy" href="#">Купить</a></p></div>
+    <div class="card"><h3>30 дней</h3><div class="price">449 ₽</div><p>Месяц, выгоднее всего за день.</p><p style="margin-top:16px"><a class="btn buy" href="#">Купить</a></p></div>
   </div>
-  <p class="note">Срок ключа считается с момента активации, а не с момента покупки. Ключ приходит автоматически сразу после оплаты. Возврат после выдачи ключа не предусмотрен: сначала попробуй бесплатные 8 минут.</p>
+  <p class="note2">Срок ключа считается с момента активации, а не с момента покупки. Ключ приходит автоматически сразу после оплаты. Возврат после выдачи ключа не предусмотрен: сначала попробуй бесплатные 8 минут.</p>
 </section>
 
-<section id="start">
+<section id="start" class="rv">
   <h2>Как начать</h2>
   <ol class="steps">
     <li>Скачай и запусти <code>Kinetic.exe</code>. Принять условия нужно один раз.</li>
@@ -92,11 +173,11 @@ code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px}
   </ol>
 </section>
 
-<section>
+<section class="rv">
   <div class="warn"><b>Важно.</b> Kinetic сделан для тренировок: свободная игра и кастомные матчи. Использование макросов в онлайн-матчах может нарушать правила игры и привести к блокировке аккаунта. В онлайн-матчах ты используешь программу на свой риск. Kinetic не связан с Psyonix и Epic Games.</div>
 </section>
 
-<section id="faq">
+<section id="faq" class="rv">
   <h2>Вопросы</h2>
   <details><summary>Windows пишет «Система Windows защитила ваш компьютер»</summary><p>Это стандартное предупреждение для новых программ без платной подписи издателя. Нажми «Подробнее» → «Выполнить в любом случае». Если антивирус ругается на макросы (программа нажимает клавиши за тебя), добавь папку с Kinetic в исключения.</p></details>
   <details><summary>Макрос не срабатывает в игре</summary><p>Если Rocket League запущена от имени администратора, запусти и Kinetic от имени администратора. Проверь, что клавиши во вкладке «Бинды» совпадают с игровыми, и что макросы включены (F8).</p></details>
@@ -111,13 +192,15 @@ code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px}
 </div>
 
 <script>
-// ← ВСТАВЬ СВОИ ССЫЛКИ ТУТ
+// ← ССЫЛКИ
 var CFG = {
   download: "https://github.com/arteimleonov-pixel/kinetic/releases/latest/download/Kinetic.exe",
   buy: "https://plati.market/"   // ссылка на твою карточку (Plati или FunPay)
 };
 document.getElementById("dl").href = CFG.download;
 document.querySelectorAll(".buy").forEach(function(a){a.href = CFG.buy;});
+var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el);});
 </script>
 </body>
 </html>
